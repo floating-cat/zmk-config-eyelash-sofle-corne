@@ -1,0 +1,33 @@
+parse_config:
+  zmk_additional_includes:
+    - "modules/zmk/helpers/include"
+  zmk_preamble: |
+    #define CONFIG_WIRELESS
+    #include <zmk-helpers/key-labels/42.h>
+  raw_binding_map:
+    "&kp LC(A)": Select all
+    "&kp LC(Z)": Undo
+    "&kp LC(LS(Z))": Redo
+    "&kp LC(X)": Cut
+    "&kp LC(C)": Copy
+    "&kp LC(V)": Paste
+
+    "&num_dance": { t: Sticky Num, s: Numword, h: Num }
+
+    "&kp LG(LC(LEFT))": Prev Desk
+    "&kp LG(LC(RIGHT))": Next Desk
+    "&kp LS(TAB)": Prev Win
+    "&swapper": Next Win
+
+    "&num_word 1": Num
+    "&smart_nav": Smart Nav
+    "&smart_mouse": Smart Mouse
+    "&dot_spc_skshft": . spc skshft
+    "&qmark_spc_skshft": "? spc skshft"
+
+  zmk_combos:
+    combo_canc: { align: top, o: 0.35 }
+    combo_del: { align: top, o: 0.15 }
+    combo_sel_all: { align: bottom, o: 0.95 }
+    combo_redo: { align: bottom, o: 0.4 }
+    combo_cut: { align: bottom, o: 0.25 }
