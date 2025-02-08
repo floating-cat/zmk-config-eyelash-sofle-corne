@@ -1,0 +1,12 @@
+/.idea/
+
+/.direnv/
+/.west/
+/eyelash_sofle/
+/firmware/
+/mario-peripheral-animation/
+/modules/
+/zephyr/
+/zmk/
+
+/draw/base.yaml
