@@ -1,0 +1,12 @@
+#define CONFIG_WIRELESS
+#define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH)                                                     \
+    ZMK_LAYER(                                                                                                   \
+        name,                                                                                                    \
+                              LT                       &kp UP                    RT                              \
+                              LM              &kp LEFT &kp ENTER &kp RIGHT       RM                              \
+                              LB   &kp C_MUTE          &kp RIGHT                 RB                              \
+                              LH                       &kp ENTER                 RH                              \
+        ,&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN                                             )
+
+#include "key-labels-eyelash-corne-64.h"
+#include "base.keymap"

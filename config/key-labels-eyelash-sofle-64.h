@@ -50,9 +50,6 @@
 #define LB4 40
 #define LB5 39
 
-#define LEC 52  // left encoder key
-#define REC 58  // right encoder key
-
 #define RB0 46  // right-bottom row
 #define RB1 47
 #define RB2 48

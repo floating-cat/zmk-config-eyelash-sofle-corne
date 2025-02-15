@@ -26,6 +26,10 @@ manifest:
       url: https://github.com/GPeye/mario-peripheral-animation
       revision: main
 
+    - name: eyelash_corne
+      url: https://github.com/a741725193/zmk-new_corne
+      revision: main
+
     - name: zmk-helpers
       path: modules/zmk/helpers
     - name: zmk-tri-state
