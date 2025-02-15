@@ -26,10 +26,6 @@ manifest:
       url: https://github.com/GPeye/mario-peripheral-animation
       revision: main
 
-    - name: zmk-adaptive-key
-      path: modules/zmk/adaptive-key
-    - name: zmk-auto-layer
-      path: modules/zmk/auto-layer
     - name: zmk-helpers
       path: modules/zmk/helpers
     - name: zmk-tri-state
@@ -44,8 +40,6 @@ manifest:
         name-allowlist:
           - cmsis
           - hal_nordic
-          - hal_rpi_pico
-          - hal_stm32
           - lvgl
           - tinycrypt
 
