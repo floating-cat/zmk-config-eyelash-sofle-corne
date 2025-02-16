@@ -5,7 +5,7 @@ parse_config:
     #define CONFIG_WIRELESS
     #include <zmk-helpers/key-labels/42.h>
   raw_binding_map:
-    "&kp LS(DEL)": Shift Del
+    "&kp LS(DEL)": Shift DEL
     "&kp LC(A)": Select All
     "&kp LC(Z)": Undo
     "&kp LC(LS(Z))": Redo
