@@ -18,6 +18,10 @@ parse_config:
     "&kp LS(TAB)": Prev Win
     "&swapper": Next Win
 
+    "&smart_nav": Smart Nav
+    "&smart_mouse": Smart Mouse
+    "&to BASE": { s: to, t: Base }
+
   zmk_combos:
     combo_del: { align: top, o: 0.15 }
     combo_sftdel: { align: top, o: 0.75 }

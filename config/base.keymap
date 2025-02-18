@@ -1,5 +1,6 @@
 // forked from https://github.com/urob/zmk-config/blob/9f386d209657a1aefc625633bda13f5a091ea465/config/base.keymap
 #include <behaviors.dtsi>
+#include <behaviors/num_word.dtsi> // Requires auto-layer module.
 #include <dt-bindings/zmk/keys.h>
 #ifdef CONFIG_WIRELESS
   #include <dt-bindings/zmk/bt.h>
@@ -41,13 +42,19 @@
 #include "combos.dtsi"
 #include "mouse.dtsi"
 
-// To-on-Tap, Momentary-on-Hold Layers
-ZMK_HOLD_TAP(mo_to, bindings = <&mo>, <&to>; flavor = "balanced";
-             tapping-term-ms = <200>; quick-tap-ms = <QUICK_TAP_MS>;)
-// Tap: to Nav layer | Hold: Nav layer.
-#define SMART_NAV &mo_to NAV NAV
-// Tap: to Mouse layer | Hold: Mouse layer.
-#define SMART_MOUSE &mo_to MOUSE MOUSE
+// Smart-nav, requires tri-state module.
+ZMK_TRI_STATE(
+    smart_nav, bindings = <&to NAV>, <&none>, <&to BASE>;
+    ignored-key-positions =
+        <RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RH0>;
+    ignored-layers = <NAV>;)
+
+// Smart-mouse, requires tri-state module.
+ZMK_TRI_STATE(
+    smart_mouse, bindings = <&to MOUSE>, <&none>, <&to BASE>;
+    ignored-key-positions =
+        <RT1 RT2 RT3 RM0 RM1 RM2 RM3 RM4 RH0 RH1 RH2>;
+    ignored-layers = <MOUSE>;)
 
 // Alt+Tab swapper, requires tri-state module.
 ZMK_TRI_STATE(swapper, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
@@ -58,9 +65,6 @@ ZMK_TRI_STATE(swapper, bindings = <&kt LALT>, <&kp TAB>, <&kt LALT>;
 #define DSK_NEXT  &kp LG(LC(RIGHT))  // Next desktop.
 
 /* Keymap */
-
-ZMK_CONDITIONAL_LAYER(sys, FN NAV, SYS) // FN + NAV --> SYS.
-
 #ifndef ZMK_BASE_LAYER
   #define ZMK_BASE_LAYER(name, LT, RT, LM, RM, LB, RB, LH, RH) \
       ZMK_LAYER(name, LT RT LM RM LB RB LH RH)
@@ -74,7 +78,7 @@ ZMK_BASE_LAYER(Base,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     &kp LSHFT     &kp Z         &kp X         &kp C         &kp V         &kp B       ,   &kp N         &kp M         &kp COMMA     &kp DOT       &kp SLASH     &to BASE,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
-                                              &sk LALT      &lt NUM SPACE &lt FN RET  ,   SMART_NAV     &kp BSPC      SMART_MOUSE
+                                              &sk LALT      &lt NUM SPACE &lt FN RET  ,   &smart_nav    &kp BSPC      &smart_mouse
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯
 )
 
@@ -92,11 +96,11 @@ ZMK_BASE_LAYER(Num,
 
 ZMK_BASE_LAYER(Fn,
 //╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮ ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-    ___           DSK_PREV      DSK_NEXT      &kp LS(TAB)   &swapper      ___         ,   ___           &kp C_PREV   &kp C_NEXT     ___           ___           ___         ,
+    ___           DSK_PREV      DSK_NEXT      &kp LS(TAB)   &swapper      &kp LA(F4)  ,   ___           &kp C_PREV   &kp C_NEXT     ___           ___           ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
     ___           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5      ,   &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       ___         ,
 //├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-    ___           &kp F11       &kp F12       &to NUM       &sk LGUI      &kp PSCRN   ,   ___           &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp C_PP      ___         ,
+    ___           &kp F11       &kp F12       &num_word NUM &sk LGUI      &kp PSCRN   ,   ___           &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp C_PP      ___         ,
 //╰─────────────┼─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤ ├─────────────┼─────────────┼─────────────┼─────────────┴───────────────────────────╯
                                               ___           ___           ___         ,   ___           &kp DEL       &kp INS
 //                                          ╰─────────────┴─────────────┴─────────────╯ ╰─────────────┴─────────────┴─────────────╯

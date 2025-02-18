@@ -34,6 +34,8 @@ manifest:
       path: modules/zmk/helpers
     - name: zmk-tri-state
       path: modules/zmk/tri-state
+    - name: zmk-auto-layer
+      path: modules/zmk/auto-layer
 
     - name: zephyr
       revision: v3.5.0+zmk-fixes
