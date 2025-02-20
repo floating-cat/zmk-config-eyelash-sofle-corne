@@ -3,6 +3,7 @@
 /.build/
 /.direnv/
 /.west/
+/eyelash_corne/
 /eyelash_sofle/
 /firmware/
 /mario-peripheral-animation/
