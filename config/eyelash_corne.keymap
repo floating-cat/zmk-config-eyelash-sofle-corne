@@ -5,8 +5,8 @@
                               LT                       &kp UP                    RT                              \
                               LM              &kp LEFT &kp ENTER &kp RIGHT       RM                              \
                               LB   &kp C_MUTE          &kp RIGHT                 RB                              \
-                              LH                       &kp ENTER                 RH                              \
+                              LH                                                 RH                              \
         ,&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp C_VOL_UP C_VOL_DN                                             )
 
-#include "key-labels-eyelash-corne-64.h"
+#include "key-labels-eyelash-corne-48.h"
 #include "base.keymap"
