@@ -24,7 +24,10 @@ parse_config:
 
   zmk_combos:
     combo_del: { align: top, o: 0.15 }
-    combo_sftdel: { align: top, o: 0.75 }
-    combo_sel_all: { align: bottom, o: 0.95 }
+    combo_sftdel: { align: top, o: 0.45 }
+    combo_sel_all: { align: bottom, o: 1.15 }
     combo_redo: { align: bottom, o: 0.4 }
     combo_cut: { align: bottom, o: 0.25 }
+    combo_sftpaste: { align: top }
+    combo_leftsys: { align: top, o: 0.45 }
+    combo_rightsys: { align: top, o: 0.45 }
