@@ -18,8 +18,9 @@ parse_config:
     "&kp LS(TAB)": Prev Win
     "&swapper": Next Win
 
-    "&smart_nav": Smart Nav
-    "&smart_mouse": Smart Mouse
+    "&num_word NUM": { s: Smart, t: Num }
+    "&smart_nav": { s: Smart, t: Nav }
+    "&smart_mouse": { s: Smart, t: Mouse }
     "&to BASE": { s: to, t: Base }
 
   zmk_combos:
