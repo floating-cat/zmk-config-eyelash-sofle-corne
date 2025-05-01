@@ -13,15 +13,13 @@ parse_config:
     "&kp LC(C)": Copy
     "&kp LC(V)": Paste
 
-    "&kp LG(LC(LEFT))": Prev Desk
-    "&kp LG(LC(RIGHT))": Next Desk
-    "&kp LS(TAB)": Prev Win
-    "&swapper": Next Win
+    "&home_lc": { t: Home, h: Ctrl+Home }
+    "&end_lc": { t: End, h: Ctrl+End }
+    "&pp_prev": { t: PP, h: PREV }
 
     "&num_word NUM": { s: Smart, t: Num }
     "&smart_nav": { s: Smart, t: Nav }
     "&smart_mouse": { s: Smart, t: Mouse }
-    "&to BASE": { s: to, t: Base }
 
   zmk_combos:
     combo_del: { align: top, o: 0.15 }
