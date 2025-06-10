@@ -17,14 +17,11 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
+      revision: main
 
     - name: eyelash_sofle
       url: https://github.com/a741725193/zmk-sofle
       revision: main
-    - name: mario-peripheral-animation
-      url: https://github.com/GPeye/mario-peripheral-animation
-      revision: main
-
     - name: eyelash_corne
       url: https://github.com/a741725193/zmk-new_corne
       revision: main
