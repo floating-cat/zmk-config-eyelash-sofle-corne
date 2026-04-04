@@ -8,7 +8,7 @@
     zephyr.flake = false;
 
     # Zephyr sdk and toolchain.
-    zephyr-nix.url = "github:urob/zephyr-nix";
+    zephyr-nix.url = "github:nix-community/zephyr-nix";
     zephyr-nix.inputs.zephyr.follows = "zephyr";
     zephyr-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -31,6 +31,7 @@
 
               pkgs.cmake
               pkgs.dtc
+              pkgs.gcc
               pkgs.ninja
 
               pkgs.just
@@ -47,6 +48,10 @@
               # pkgs.gnugrep
               # pkgs.gnused
             ];
+
+          env = {
+            PYTHONPATH = "${zephyr.pythonEnv}/${zephyr.pythonEnv.sitePackages}";
+          };
 
           shellHook = ''
             export ZMK_BUILD_DIR=$(pwd)/.build;

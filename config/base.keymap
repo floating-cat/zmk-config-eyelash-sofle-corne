@@ -1,6 +1,6 @@
 // forked from https://github.com/urob/zmk-config/blob/9f386d209657a1aefc625633bda13f5a091ea465/config/base.keymap
 #include <behaviors.dtsi>
-#include <behaviors/num_word.dtsi> // Requires auto-layer module.
+#include <behaviors/num_word.dtsi> // Requires zmk-auto-layer module.
 #include <dt-bindings/zmk/keys.h>
 #ifdef CONFIG_WIRELESS
   #include <dt-bindings/zmk/bt.h>
@@ -11,7 +11,7 @@
   #define _BT_SEL_KEYS_ &trans &trans &trans &trans &trans
 #endif
 
-#include "zmk-helpers/helper.h"
+#include <zmk-helpers/helper.h> // Requires zmk-helpers module.
 
 #define BASE_L 0
 #define NUM_L 1

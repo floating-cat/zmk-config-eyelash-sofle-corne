@@ -4,7 +4,7 @@
 manifest:
   defaults:
     remote: urob
-    revision: v0.2
+    revision: v0.3
 
   remotes:
     - name: zmkfirmware
@@ -17,7 +17,7 @@ manifest:
     - name: zmk
       remote: zmkfirmware
       import: app/west.yml
-      revision: main
+      revision: v0.3
 
     - name: eyelash_sofle
       url: https://github.com/a741725193/zmk-sofle
@@ -33,12 +33,13 @@ manifest:
     - name: zmk-auto-layer
       path: modules/zmk/auto-layer
 
+    # Only source necessary Zephyr modules. Remove this entire section to restore
+    # the default (needed for less common hardware).
     - name: zephyr
+      remote: zmkfirmware
       revision: v3.5.0+zmk-fixes
       clone-depth: 1
       import:
-        # Only enable most commonly used boards. For less common hardware one
-        # may need to enable additional modules.
         name-allowlist:
           - cmsis
           - hal_nordic
